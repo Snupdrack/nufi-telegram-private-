@@ -204,7 +204,13 @@ app.post(NUFI_PATH, async (req, res) => {
     res.sendStatus(500);
   }
 });
+app.get("/", (req, res) => {
+  res.status(200).send("Servidor activo ✅");
+});
 
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
 // ================= TELEGRAM WEBHOOK =================
 app.use(bot.webhookCallback(TELEGRAM_PATH));
 
